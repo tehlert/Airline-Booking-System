@@ -1,0 +1,76 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Air3550
+{
+    public partial class LoginForm : Form
+    {
+        public LoginForm()
+        {
+            InitializeComponent();
+        }
+
+        //exit button for login form
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //log in button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Check user name and password here
+            if (usernameText.Text == "customer" && passwordText.Text == "1234")
+            {
+                //open correct form
+                CustomerForm customerForm = new CustomerForm();
+                customerForm.Show();
+                this.Visible = false;
+            }
+            else if (usernameText.Text == "accountant" && passwordText.Text == "1234")
+            {
+                //open correct form
+                AccountantForm accountantForm = new AccountantForm();
+                accountantForm.Show();
+                this.Visible = false;
+            }
+            else if (usernameText.Text == "flightmanager" && passwordText.Text == "1234")
+            {
+                FlightManagerForm flightManagerForm = new FlightManagerForm();
+                flightManagerForm.Show();
+                this.Visible = false;
+            }
+            else if (usernameText.Text == "marketingmanager" && passwordText.Text == "1234")
+            {
+                MarketingManagerForm marketingManagerForm = new MarketingManagerForm();
+                marketingManagerForm.Show();
+                this.Visible = false;
+            }
+            else if (usernameText.Text == "loadengineer" && passwordText.Text == "1234")
+            {
+                LoadEngineerForm loadEngineerForm = new LoadEngineerForm();
+                loadEngineerForm.Show();
+                this.Visible = false;
+            }
+            else
+            {
+                //can customize box later
+                MessageBox.Show("The username or password you entered is incorrect");
+            }
+        }
+
+        //Create account button
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CreateAccountForm accountForm = new CreateAccountForm();
+            accountForm.ShowDialog();
+        }
+    }
+}
